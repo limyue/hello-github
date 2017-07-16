@@ -1,2 +1,3 @@
 # hello-github
-just it
+  如何使用github？
+    https://www.zhihu.com/question/20070065
