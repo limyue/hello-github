@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>简易年历</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		html{
+			background-color: yellow;
+		}
+		.swap{
+			width: 300px;
+			padding-top: 20px;
+			margin: 0 auto;
+		}
+		#year{
+			width: 300px;
+			overflow: hidden;
+			
+		}
+		#year ul li{
+			list-style: none;
+			width: 100px;
+			height: 100px;
+			float: left;
+			text-align: center;
+			line-height: 100px;
+			background-color: #000;
+			color:#fff;
+			font-size: 30px;
+			box-sizing: border-box;
+			border:1px solid #ccc;
+		}
+		#year #box{
+			clear:both;
+			width: 300px;
+			background-color: #000;
+			color:#fff;
+			font-size: 20px;
+			padding:60px 35px;
+			box-sizing: border-box;
+
+		}
+		#year ul li.li1{
+			background-color: #fff;
+			color:#000;
+		}/*优先级问题--容易出错误*/
+	</style>
+	<script>
+		window.onload = function(){
+			var arr =[
+				'我们一起出去玩呀',
+				'该上学啦',
+				'html+css',
+				'去旅游啦',
+				'吃吃吃',
+				'抓紧时间复习还有21天',
+				'放假啦',
+				'新学期，新气象',
+				'去张家口，沧州和石家庄',
+				'js+jq',
+				'物联网研究计划',
+				'2018年毕业论文'
+			];
+			var oyear = document.getElementById("year");
+			var ali = oyear.getElementsByTagName("li");
+			var adiv = oyear.getElementsByTagName("div")[0];//获取box数组
+			for(var i=0;i<ali.length;i++)
+			{
+				ali[i].index = i;
+				ali[i].onmouseover = function(){
+					for(var i=0;i<ali.length;i++){
+						ali[i].className = '';
+					}
+					this.className = 'li1';
+					adiv.innerHTML = '<h4>现在是'+(this.index+1)+'月份</h4><br/><p>'+arr[this.index]+'</p>';
+				};
+
+			}
+			
+		};
+	</script>
+</head>
+<body>
+	<div class="swap">
+		<div id="year">
+			<ul>
+				<li>一</li>
+				<li>二</li>
+				<li>三</li>
+				<li>四</li>
+				<li>五</li>
+				<li>六</li>
+				<li>七</li>
+				<li>八</li>
+				<li>九</li>
+				<li>十</li>
+				<li>十一</li>
+				<li>十二</li>
+			</ul>
+		
+			<div id="box">
+				
+			</div>
+			<!--改变的是div中的文字  引入innerHTML-->
+		</div>
+	</div>
+</body>
+</html>
